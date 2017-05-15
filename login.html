@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="./js/bootstrap.min.js"></script>
+    <!--自己的css文件-->
+    <link rel="stylesheet" href="./css/dragonfruit-entry.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <title>火龙果-共同构造一个魔法世界</title>
+
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="h1_center">火龙果</h1>
+        <h2 class="h2_center">这个世界，你是主宰</h2>
+        <div class="div_center">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active" id="login"><a href="#" onclick="clickButton(this)">登录</a></li>
+                <li role="presentation" id="register"><a href="#" onclick="clickButton(this)">注册</a></li>
+            </ul>
+        </div>
+        <div class="input_center" id="login_block">
+            <br>
+            <input type="text" class="form-control" placeholder="请输入您的账号" maxlength="20"s style="margin-bottom:15px">
+            
+            <input type="password" class="form-control" id="inputPassword3" placeholder="密码" maxlength="20">
+            <br>
+            <button type="button" class="btn btn-primary btn-block " id="login_bt">登录</button>
+        </div>
+        <div class="input_center" id="register_block" style="display:none">
+            <br>
+            <input type="text" class="form-control" placeholder="账号" maxlength="20">
+            <br>
+            <input type="password" class="form-control" id="inputPassword3" placeholder="密码" maxlength="20">
+            <br>
+            <input type="text" class="form-control" placeholder="昵称" maxlength="20">
+            <br>
+            <button type="button" class="btn btn-primary btn-block">注册</button>
+        </div>
+    </div>
+    <!--script测试-->
+    <script>
+        function clickButton(id) 
+        {
+            var login = document.getElementById("login");
+            var register = document.getElementById("register");
+            var text = id.innerHTML;
+            console.log(register.className);
+            if (text == "注册") {
+                login.className = null;
+                register.className = "active";
+                document.getElementById("login_block").style.display = "none";
+                document.getElementById("register_block").style.display = "block";
+            }
+            else {
+                login.className = "active";
+                register.className = null;
+                document.getElementById("login_block").style.display = "block";
+                document.getElementById("register_block").style.display = "none";
+            }
+        }
+        function register_Request()
+        {
+            var xmlhttp;
+            if(window.XMLHttpRequest)
+                xmlhttp=new XMLHttpRequest();
+            else
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        $(
+            $('#login_bt').click(function(){
+                $.ajax({
+                    url:"http://127.0.0.1:8000/polls/",
+                    type:"GET",
+                    dataType:"text",
+                    success:function(res){
+                        console.log(res);
+                    }
+                })
+            })
+        );
+    </script>
+</body>
+
+</html>

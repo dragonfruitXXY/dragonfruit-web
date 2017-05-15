@@ -1,0 +1,51 @@
+body
+{
+    /*background: url(../static/06.png);*/
+}
+.main
+{
+    margin-top: 50px;
+    width:500px;
+    height: 500px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color:gainsboro;
+    margin-right:auto;
+    margin-left: auto;
+    background: rgba(0,0,0,0);
+}
+
+.h1_center
+{
+    text-align: center;
+    color:skyblue;
+    margin-top: 50px;
+    font-size: 60px;
+    opacity:1;
+}
+
+.h2_center
+{
+    text-align: center;
+    color:black;
+    margin-top: 30px;
+    font-size:20px;
+    opacity:1;
+}
+
+.div_center
+{
+    display: -webkit-flex;
+    -webkit-justify-content:center;
+    -webkit-align-items:center;
+    opacity:1;
+}
+
+.input_center
+{
+    margin: 0;
+    margin-right:auto;
+    margin-left: auto;
+    width: 300px;
+    opacity:1;
+}

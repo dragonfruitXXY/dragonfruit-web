@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <title>学习canvas</title>
+</head>
+
+<body>
+    <canvas style="border:1px solid" id="canvas" width="1000" height="1000"></canvas>
+    <script>
+        $(function () {
+            // var canvas=document.getElementById("canvas");
+            // var context=canvas.getContext("2d");
+            // context.fillRect(25,25,100,100);
+            // context.clearRect(45,45,60,60);
+            // context.strokeRect(50,50,50,50);
+            //draw_color_rect();
+            Gradient();
+            image();
+        });
+        //颜色不同的正方形
+        function draw_color_rect() {
+            var ctx = document.getElementById('canvas').getContext("2d");
+            for (var i = 0; i < 6; i++) {
+                for (var j = 0; j < 6; j++) {
+                    ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' + Math.floor(255 - 42.5 * j) + ',0)';
+                    ctx.fillRect(j * 25, i * 25, 25, 25);
+                }
+            }
+        }
+
+        //渐变效果
+        function Gradient() {
+            var ctx = document.getElementById('canvas').getContext("2d");
+            var gradient = ctx.createLinearGradient(0, 0, 200, 0);//线性路线渐变，参数为(x,y,x1,y1);
+            gradient.addColorStop(0, "green");//(偏移值，颜色)所以是从0到1，颜色由绿色变为白色
+            gradient.addColorStop(1, "white");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(10, 10, 200, 100);
+        }
+
+        //图片
+        function image() {
+            var ctx = document.getElementById('canvas').getContext("2d");
+            var img = new Image();
+            img.onload = function () {
+                ctx.drawImage(img, 100, 100,100,100);
+                ctx.stroke();
+            }
+            img.src = "../static/001.jpg";
+        }
+    </script>
+</body>
+
+</html>

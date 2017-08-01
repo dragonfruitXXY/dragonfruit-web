@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="author" content="">
+    <title>火龙果主页面</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/dragonfruit-index.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!--导航栏-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">火龙果</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <!--class="active"为选中状态-->
+                    <li>
+                        <button type="button" class="btn btn-default navbar-btn">换成头像图片</button>
+                    </li>
+                    <li class="" id="username"><a href="#">用户名</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					账户
+					<b class="caret"></b>
+				</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">个人中心</a></li>
+                            <li class="divider"></li>
+                            <!--分割线-->
+                            <li><a href="#">注销</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--左侧导航栏-->
+    <div class="container-fluid" style="margin-top:100px;">
+        <div class="row">
+            <div class="col-xs-2">
+                <ul class="nav nav-tabs nav-stacked" data-spy="affix">
+                    <li id="xujunchao" class="title">Overview <span class="sr-only">(current)</span></li>
+                    <li class="title">目录一</li>
+                    <li class="title">目录二</li>
+                    <li id="content3" class="title">目录三</li>
+                    <li class="subtitle" id="subtitle_3_1">xxx</li>
+                    <hr>
+                    <li class="title">Nav item</li>
+                    <li class="title">Nav item again</li>
+
+            </div>
+            <div class="col-xs-9 " id="article">
+                <div class="article ">
+                    在这里添加文章
+                </div>
+            </div>
+
+
+
+            <script>
+                $(document).ready(function () {
+                    //添加正文内容
+                    getArticle();
+                    $('#article').append("<div class='article'><h1>hello xujunchao</h1></div>");
+                    //$('#article').after("<h1>hello xujunchao1</h1>");
+                    $('#article').append("<div class='article'><h1>hello xujunchao1</h1></div>");
+
+                    //左侧书签栏css3动画效果
+                    $('#content3').click(function () {
+                        $('#subtitle_3_1').css('height', '20px');
+                        $('#subtitle_3_1').css('opacity', '1.0');
+
+                    })
+                })
+
+
+                function getArticle() 
+                {
+                    $.ajax
+                        ({
+                            url: "http://42.96.169.172/dragonfruit/rest/v1/story/getPage",
+                            type: "post",
+                            contentType: "application/json",
+                            dataType: "json",
+                            data: JSON.stringify({"page":"1", "size":"5"}),
+                            success: function (res) {
+                                // var return_message=JSON.parse(res);
+                                 $.each(res,function(i,item){
+                                    $('#article').append("<div class='article'>"<h1>+item.title+"</h1><p>"+item.description+"</p></div>");
+                                 })
+                            }
+                        })
+                }
+                    function article(title,description,storyTypeId,like)
+                    {
+                        this.title=title;
+                        this.description=description;
+                        this.storyTypeId=storyTypeId;
+                        this.like=like;
+                     $('#article').append("<div class='article'>"<h1>+this.title+"</h1><p>"+this.description+"</p></div>");
+                    }
+            </script>
+</body>
+
+</html>

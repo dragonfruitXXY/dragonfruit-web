@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    恭喜来到页面2
+
+</body>
+<script>
+    //异域操作，否则无法发送cookie
+    $(function () {  //, headers: { 'x-requested-with': 'XMLHttpRequest' }
+        $.ajaxSetup({ crossDomain: true, xhrFields: { withCredentials: true } });
+    });
+    $(function () {
+        $.ajax({
+            url: "http://115.28.192.61:9690/dragonfruit/rest/v1/user/info",
+            //data: {},
+            type: "GET",
+            // xhrFields: {withCredentials: true},
+            success: function (data) {
+                alert(data.data.password);
+            }
+        });
+    });
+
+</script>
+
+</html>

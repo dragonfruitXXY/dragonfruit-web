@@ -1,5 +1,6 @@
 body
 {
+   background-color:oldlace;
     /*background: url(../static/06.png);*/
 }
 .main
@@ -9,10 +10,10 @@ body
     height: 500px;
     border-radius: 5px;
     border-style: solid;
-    border-color:gainsboro;
+    border-color:ghostwhite;
     margin-right:auto;
     margin-left: auto;
-    background: rgba(0,0,0,0);
+    background: rgba(255,255,255,0.5);
 }
 
 .h1_center
@@ -48,4 +49,9 @@ body
     margin-left: auto;
     width: 300px;
     opacity:1;
+}
+
+.input_ignoreBR
+{
+    margin-top:25px;
 }

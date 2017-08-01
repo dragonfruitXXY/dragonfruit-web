@@ -1,0 +1,544 @@
+重要笔记：使用星星图来显示文章的分支。😎
+115.28.192.61
+1.
+接口说明:
+	添加用户，修改用户信息
+接口方法:
+	POST
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/user/register
+请求参数格式:
+	{"name":"", "password":"", "phoneNum":"", "email":"", "signature":""}
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "tocken": "az4tvntpwndrk0rgkbhq",
+	    "userId": "591a90b30f083c30f89eed58"
+	  },
+	  "message": "Save user succeeded!"
+	}
+备注:
+	返回参数中的tocken添加到请求Cookie中，用来给后台识别用户。
+	
+2.
+接口说明:
+	用户登录
+接口方法:
+	POST
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/user/login
+请求参数格式:
+	{"name":"", "password":""}
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "tocken": "az4tvntpwndrk0rgkbhq",
+	    "userId": "591a90b30f083c30f89eed58"
+	  },
+	  "message": null
+	}
+备注:
+	返回参数中的tocken添加到请求Cookie中，用来给后台识别用户。
+
+3.
+接口说明:
+	用户登出
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/user/logout
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": null,
+	  "message": "User [591a90b30f083c30f89eed58] logout succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+
+4.
+接口说明:
+	注销(删除)用户
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/user/delete
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": null,
+	  "message": "Delete user [591a927a0f083c30f89eed59] succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+5.
+接口说明:
+	获取用户详情
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/user/info
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "id": "591a927a0f083c30f89eed59",
+	    "name": "John",
+	    "password": "12345678",
+	    "phoneNum": "123",
+	    "email": "123@123.cn",
+	    "signature": "ad"
+	  },
+	  "message": "Get user info succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+6.
+接口说明:
+	新建故事
+接口方法:
+	POST
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/save
+请求参数格式:
+	{"storyTypeId":"", "name":"", "description":""}
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "storyId": "591a93e70f083c30f89eed5a"
+	  },
+	  "message": "Save story succeeded!"
+	}
+备注:
+	请求参数说明:
+	storyTypeId:故事类型id
+	name:故事名称
+	description:故事描述
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+7.
+接口说明:
+	删除故事
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/591a93e70f083c30f89eed5a/delete
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": null,
+	  "message": "Delete story for id [591a93e70f083c30f89eed5a] Succeeded!"
+	}
+备注:
+	删除故事会将所有与此故事关联的故事内容删除
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+8.
+接口说明:
+	新建内容
+接口方法:
+	POST
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/save
+请求参数格式:
+	{"storyId":"", "headContentId":null, "content":""}
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "storyContentId": "591a95ea0f083c30f89eed5e"
+	  },
+	  "message": "Save story content succeeded!"
+	}
+备注:
+	headContentId为null表示为头内容结点,每个故事只能有一个头内容结点
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+9.
+接口说明:
+	删除故事内容
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/{storyContentId}/delete
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": null,
+	  "message": "Delete story content for id [591a96870f083c30f89eed60] Succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+10.
+接口说明:
+	点赞故事
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/{storyId}/like
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": null,
+	  "message": "Like story succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+	
+11.
+接口说明:
+	点赞故事内容
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/{storyContentId}/like
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": null,
+	  "message": "Like story content succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。
+
+12.
+接口说明:
+	获取所有故事类型
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/type/all
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": [
+	    {
+	      "id": "591a8b1c63ade4d5db4ce402",
+	      "code": "science",
+	      "name": "科学"
+	    },
+	    {
+	      "id": "591a8b1c63ade4d5db4ce403",
+	      "code": "medical",
+	      "name": "医学"
+	    }
+	  ],
+	  "message": "Query succeeded!"
+	}
+备注:
+	
+	
+13.
+接口说明:
+	获取故事总数
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/count
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "storyCount": 1
+	  },
+	  "message": "Query succeeded!"
+	}
+备注:
+	
+	
+14.
+接口说明:
+	分页获取故事
+接口方法:
+	POST
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/getPage
+请求参数格式:
+	{"page":"", "size":""}
+返回参数格式:
+	{
+	  "result": true,
+	  "data": [
+	    {
+	      "id": "591a99180f083c30f89eed6e",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145adwadwdwdwdd4dawdd5",
+	      "description": "dafvafawwadwadfdwddwdddwdwddwdwda",
+	      "like": 0
+	    },
+	    {
+	      "id": "591a991b0f083c30f89eed6f",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145adwadwddwdwdwdd4dawdd5",
+	      "description": "dafvafawwadwadfdwddwdddwdwddwdwda",
+	      "like": 0
+	    },
+	    {
+	      "id": "591a991c0f083c30f89eed70",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145adwadwddwdwdwdd4dawdd5",
+	      "description": "dafvafawwadwadfdwddwdddwdwddwdwddwda",
+	      "like": 0
+	    }
+	  ],
+	  "message": "Query succeeded!"
+	}
+备注:
+	请求参数说明:page：当前页  size:页大小
+	
+15.
+接口说明:
+	分页获取故事(根据点赞数量降序排序)
+接口方法:
+	POST
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/getLikeDownPage
+请求参数格式:
+	{"page":"2", "size":"3"}
+返回参数格式:
+	{
+	  "result": true,
+	  "data": [
+	    {
+	      "id": "591a99180f083c30f89eed6e",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145adwadwdwdwdd4dawdd5",
+	      "description": "dafvafawwadwadfdwddwdddwdwddwdwda",
+	      "like": 0
+	    },
+	    {
+	      "id": "591a991b0f083c30f89eed6f",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145adwadwddwdwdwdd4dawdd5",
+	      "description": "dafvafawwadwadfdwddwdddwdwddwdwda",
+	      "like": 0
+	    },
+	    {
+	      "id": "591a991c0f083c30f89eed70",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145adwadwddwdwdwdd4dawdd5",
+	      "description": "dafvafawwadwadfdwddwdddwdwddwdwddwda",
+	      "like": 0
+	    }
+	  ],
+	  "message": "Query succeeded!"
+	}
+备注:
+	请求参数说明:page：当前页  size:页大小
+	
+16.
+接口说明:
+	获取故事详情
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/{storyId}/info
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "id": "591a99180f083c30f89eed6e",
+	    "userId": "591a90b30f083c30f89eed58",
+	    "storyTypeId": "15981815",
+	    "name": "d145adwadwdwdwdd4dawdd5",
+	    "description": "dafvafawwadwadfdwddwdddwdwddwdwda",
+	    "like": 0
+	  },
+	  "message": "Query succeeded!"
+	}
+备注:
+	
+	
+17.
+接口说明:
+	获取故事内容详情
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/{storyContentId}/info
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "id": "591a96870f083c30f89eed60",
+	    "userId": "591a90b30f083c30f89eed58",
+	    "storyId": "591a95e10f083c30f89eed5d",
+	    "headContentId": "591a95ea0f083c30f89eed5e",
+	    "content": "46584awd4awf4adwad1a546wd4184dfa8",
+	    "like": 0
+	  },
+	  "message": "Query succeeded!"
+	}
+备注:
+	
+	
+18.
+接口说明:
+	获取故事内容树状结构
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/{storyId}/content/tree
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": {
+	    "id": "591a95ea0f083c30f89eed5e",
+	    "userId": "591a90b30f083c30f89eed58",
+	    "storyId": "591a95e10f083c30f89eed5d",
+	    "headContentId": null,
+	    "content": "dawddawdawd",
+	    "like": 0,
+	    "childNodeList": [
+	      {
+	        "id": "591a96730f083c30f89eed5f",
+	        "userId": "591a90b30f083c30f89eed58",
+	        "storyId": "591a95e10f083c30f89eed5d",
+	        "headContentId": "591a95ea0f083c30f89eed5e",
+	        "content": "46584awd4awf4a68w84d8a4d1aw84dfa8",
+	        "like": 1,
+	        "childNodeList": [
+	          {
+	            "id": "591a96b20f083c30f89eed62",
+	            "userId": "591a90b30f083c30f89eed58",
+	            "storyId": "591a95e10f083c30f89eed5d",
+	            "headContentId": "591a96730f083c30f89eed5f",
+	            "content": "46584dwawaa8",
+	            "like": 0,
+	            "childNodeList": []
+	          },
+	          {
+	            "id": "591a96a00f083c30f89eed61",
+	            "userId": "591a90b30f083c30f89eed58",
+	            "storyId": "591a95e10f083c30f89eed5d",
+	            "headContentId": "591a96730f083c30f89eed5f",
+	            "content": "46584awwd4184dfa8",
+	            "like": 0,
+	            "childNodeList": [
+	              {
+	                "id": "591a96e50f083c30f89eed66",
+	                "userId": "591a90b30f083c30f89eed58",
+	                "storyId": "591a95e10f083c30f89eed5d",
+	                "headContentId": "591a96a00f083c30f89eed61",
+	                "content": "465d196841daa8",
+	                "like": 0,
+	                "childNodeList": []
+	              }
+	            ]
+	          }
+	        ]
+	      },
+	      {
+	        "id": "591a96870f083c30f89eed60",
+	        "userId": "591a90b30f083c30f89eed58",
+	        "storyId": "591a95e10f083c30f89eed5d",
+	        "headContentId": "591a95ea0f083c30f89eed5e",
+	        "content": "46584awd4awf4adwad1a546wd4184dfa8",
+	        "like": 0,
+	        "childNodeList": [
+	          {
+	            "id": "591a96d40f083c30f89eed65",
+	            "userId": "591a90b30f083c30f89eed58",
+	            "storyId": "591a95e10f083c30f89eed5d",
+	            "headContentId": "591a96870f083c30f89eed60",
+	            "content": "465ddwadwadaa8",
+	            "like": 0,
+	            "childNodeList": []
+	          },
+	          {
+	            "id": "591a96ca0f083c30f89eed64",
+	            "userId": "591a90b30f083c30f89eed58",
+	            "storyId": "591a95e10f083c30f89eed5d",
+	            "headContentId": "591a96870f083c30f89eed60",
+	            "content": "465d5610aa8",
+	            "like": 0,
+	            "childNodeList": []
+	          },
+	          {
+	            "id": "591a96bc0f083c30f89eed63",
+	            "userId": "591a90b30f083c30f89eed58",
+	            "storyId": "591a95e10f083c30f89eed5d",
+	            "headContentId": "591a96870f083c30f89eed60",
+	            "content": "465dawdwa84dwawaa8",
+	            "like": 0,
+	            "childNodeList": []
+	          }
+	        ]
+	      }
+	    ]
+	  },
+	  "message": "Query succeeded!"
+	}
+备注:
+
+
+18.
+接口说明:
+	获取用户建立的所有故事
+接口方法:
+	GET
+接口URL:
+	http://115.28.192.61:9690/dragonfruit/rest/v1/story/getStories
+请求参数格式:
+	无
+返回参数格式:
+	{
+	  "result": true,
+	  "data": [
+	    {
+	      "id": "591a95e10f083c30f89eed5d",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "jdaldawdwjdwia",
+	      "description": "dafvafawfdwda",
+	      "like": 1
+	    },
+	    {
+	      "id": "591a99060f083c30f89eed69",
+	      "userId": "591a90b30f083c30f89eed58",
+	      "storyTypeId": "15981815",
+	      "name": "d145aw4d5",
+	      "description": "dafvafawwadwadfdwda",
+	      "like": 0
+	    }
+	  ],
+	  "message": "Query succeeded!"
+	}
+备注:
+	需要将tocken添加到请求Cookie中，用来给后台识别用户。	

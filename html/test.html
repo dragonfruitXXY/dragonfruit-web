@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <style type="text/css">
+        .test{
+            background: red;
+            width: 100px;
+            height: 0px;
+            transition: all 1s;
+            -moz-transition: all 1s;
+            -webkit-transition: all 1s;
+            -o-transition:all 1s;
+            opacity:0.0;
+        }
+
+    </style>
+    <body>
+        <div id="div" class="test"></div>
+        <p id="xujunchao">ddd</p>
+        <ul>
+            <li class="test" id="test">ddd</li>
+            <li class="test" id="test1">kkk</li>
+            <li>徐俊超</li>
+        </ul>
+        <script type="text/javascript">
+            document.getElementById("xujunchao").onclick=function(){
+            document.getElementById("test").style.height="20px";
+            document.getElementById("test1").style.height="20px";
+            document.getElementById("test").style.opacity="1.0";
+            document.getElementById("test1").style.opacity="1.0";
+
+            }
+        </script>
+    </body>
+</html>

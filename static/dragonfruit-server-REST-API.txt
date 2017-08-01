@@ -1,12 +1,12 @@
 重要笔记：使用星星图来显示文章的分支。😎
-115.28.192.61
+42.96.169.172
 1.
 接口说明:
 	添加用户，修改用户信息
 接口方法:
 	POST
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/user/register
+	http://42.96.169.172/dragonfruit/rest/v1/user/register
 请求参数格式:
 	{"name":"", "password":"", "phoneNum":"", "email":"", "signature":""}
 返回参数格式:
@@ -27,7 +27,7 @@
 接口方法:
 	POST
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/user/login
+	http://42.96.169.172/dragonfruit/rest/v1/user/login
 请求参数格式:
 	{"name":"", "password":""}
 返回参数格式:
@@ -48,7 +48,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/user/logout
+	http://42.96.169.172/dragonfruit/rest/v1/user/logout
 请求参数格式:
 	无
 返回参数格式:
@@ -66,7 +66,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/user/delete
+	http://42.96.169.172/dragonfruit/rest/v1/user/delete
 请求参数格式:
 	无
 返回参数格式:
@@ -84,7 +84,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/user/info
+	http://42.96.169.172/dragonfruit/rest/v1/user/info
 请求参数格式:
 	无
 返回参数格式:
@@ -109,7 +109,7 @@
 接口方法:
 	POST
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/save
+	http://42.96.169.172/dragonfruit/rest/v1/story/save
 请求参数格式:
 	{"storyTypeId":"", "name":"", "description":""}
 返回参数格式:
@@ -133,7 +133,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/591a93e70f083c30f89eed5a/delete
+	http://42.96.169.172/dragonfruit/rest/v1/story/591a93e70f083c30f89eed5a/delete
 请求参数格式:
 	无
 返回参数格式:
@@ -152,7 +152,7 @@
 接口方法:
 	POST
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/save
+	http://42.96.169.172/dragonfruit/rest/v1/story/content/save
 请求参数格式:
 	{"storyId":"", "headContentId":null, "content":""}
 返回参数格式:
@@ -173,7 +173,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/{storyContentId}/delete
+	http://42.96.169.172/dragonfruit/rest/v1/story/content/{storyContentId}/delete
 请求参数格式:
 	无
 返回参数格式:
@@ -191,7 +191,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/{storyId}/like
+	http://42.96.169.172/dragonfruit/rest/v1/story/{storyId}/like
 请求参数格式:
 	无
 返回参数格式:
@@ -209,7 +209,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/{storyContentId}/like
+	http://42.96.169.172/dragonfruit/rest/v1/story/content/{storyContentId}/like
 请求参数格式:
 	无
 返回参数格式:
@@ -227,7 +227,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/type/all
+	http://42.96.169.172/dragonfruit/rest/v1/story/type/all
 请求参数格式:
 	无
 返回参数格式:
@@ -256,7 +256,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/count
+	http://42.96.169.172/dragonfruit/rest/v1/story/count
 请求参数格式:
 	无
 返回参数格式:
@@ -276,7 +276,7 @@
 接口方法:
 	POST
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/getPage
+	http://42.96.169.172/dragonfruit/rest/v1/story/getPage
 请求参数格式:
 	{"page":"", "size":""}
 返回参数格式:
@@ -319,7 +319,7 @@
 接口方法:
 	POST
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/getLikeDownPage
+	http://42.96.169.172/dragonfruit/rest/v1/story/getLikeDownPage
 请求参数格式:
 	{"page":"2", "size":"3"}
 返回参数格式:
@@ -362,7 +362,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/{storyId}/info
+	http://42.96.169.172/dragonfruit/rest/v1/story/{storyId}/info
 请求参数格式:
 	无
 返回参数格式:
@@ -387,7 +387,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/content/{storyContentId}/info
+	http://42.96.169.172/dragonfruit/rest/v1/story/content/{storyContentId}/info
 请求参数格式:
 	无
 返回参数格式:
@@ -412,7 +412,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/{storyId}/content/tree
+	http://42.96.169.172/dragonfruit/rest/v1/story/{storyId}/content/tree
 请求参数格式:
 	无
 返回参数格式:
@@ -514,7 +514,7 @@
 接口方法:
 	GET
 接口URL:
-	http://115.28.192.61:9690/dragonfruit/rest/v1/story/getStories
+	http://42.96.169.172/dragonfruit/rest/v1/story/getStories
 请求参数格式:
 	无
 返回参数格式:
